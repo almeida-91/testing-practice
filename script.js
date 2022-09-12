@@ -28,7 +28,59 @@ export let Calculator = {
     }
     }
 
-export function caesarCypher(string){
+export function caesarCipher(string, k){
     let stringArray = string.split('');
-    
+    let resultArray = [];
+    for (let i = 0 ; i < stringArray.length; i++){
+        let indexString = stringArray[i].charCodeAt();
+        if (indexString >= 97 && indexString <= 122){
+            indexString = cipherLowerCase(indexString,k);
+            resultArray.push(String.fromCharCode(indexString));
+        } else if (indexString >= 65 && indexString <= 90){
+            indexString = cipherUpperCase(indexString,k);
+            resultArray.push(String.fromCharCode(indexString));
+        } else {
+            resultArray.push(String.fromCharCode(indexString));
+        }
+    }
+    let resultString = resultArray.join('');
+    return resultString;
+}
+
+function cipherLowerCase(charCode,k){
+    let result = (charCode+k);
+    if (result > 122){
+        result %= 122;
+        if (result >= 1 && result <= 97) result += 96;
+    }
+    return result;
+}
+
+function cipherUpperCase(charCode,k){
+    let result = (charCode+k)
+    if (result > 90){
+        result %= 90;
+        if (result >= 1 && result < 90) result += 89;
+    }
+    return result;
+}
+
+export function analyzeArray(array){
+    let result = {
+        average: getAverage(array),
+        min: getMin(array),
+        max: getMax(array),
+        length: array.length,
+    };
+    return result;
+}
+
+function getMin(array){
+    array.sort((a,b)=>{return a - b});
+    return array[0];
+}
+
+function getMax(array){
+    array.sort((a,b)=>{return a - b});
+    return array[array.length-1];
 }

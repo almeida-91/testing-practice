@@ -1,4 +1,4 @@
-import { Calculator, capitalize, reverseString } from "./script";
+import { caesarCipher, Calculator, capitalize, reverseString } from "./script";
 
 test('Capitalize',()=>{
     expect(capitalize('test')).toBe('Test');
@@ -43,3 +43,20 @@ test('Calculator divide', ()=>{
 test('Calculator multiply', ()=>{
     expect(Calculator.multiply(3,2)).toBe(6);
 })
+
+test('Caesar Cipher', ()=>{
+    expect(caesarCipher('DEFENDTHEEASTWALLOFTHECASTLE',1)).toBe('EFGFOEUIFFBTUXBMMPGUIFDBTUMF');
+})
+
+test('Caesar Cipher', ()=>{
+    expect(caesarCipher('abcdefghijklmnopqrstuvwxyz',1)).toBe('bcdefghijklmnopqrstuvwxyza');
+})
+
+test('Caesar Cipher', ()=>{
+    expect(caesarCipher('defend the east wall of the castle',1)).toBe('efgfoe uif fbtu xbmm pg uif dbtumf');
+})
+
+test('Caesar Cipher', ()=>{
+    expect(caesarCipher('defend the, east. wall... of the castle',1)).toBe('efgfoe uif, fbtu. xbmm... pg uif dbtumf');
+})
+
