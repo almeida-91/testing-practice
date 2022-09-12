@@ -4,3 +4,10 @@ export function capitalize(string){
     let result = firstLetter.concat(string);
     return result;
 }
+
+export function reverseString(string){
+    let result = string.split("");
+    result = result.reverse();
+    result = result.join("");
+    return result;
+}
