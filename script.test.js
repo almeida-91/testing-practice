@@ -1,4 +1,4 @@
-import { capitalize, reverseString } from "./script";
+import { Calculator, capitalize, reverseString } from "./script";
 
 test('Capitalize',()=>{
     expect(capitalize('test')).toBe('Test');
@@ -22,4 +22,24 @@ test('reverse string', ()=>{
 
 test('reverse string', ()=>{
     expect(reverseString('Greetings from Earth')).toBe('htraE morf sgniteerG');
+})
+
+test('Calculator add', ()=>{
+    expect(Calculator.add(3,2)).toBe(5);
+})
+
+test('Calculator subtract', ()=>{
+    expect(Calculator.subtract(3,2)).toBe(1);
+})
+
+test('Calculator divide', ()=>{
+    expect(Calculator.divide(3,2)).toBeCloseTo(1.5);
+})
+
+test('Calculator divide', ()=>{
+    expect(Calculator.divide(3,0)).toBe("ERROR");
+})
+
+test('Calculator multiply', ()=>{
+    expect(Calculator.multiply(3,2)).toBe(6);
 })
