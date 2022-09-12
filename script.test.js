@@ -60,6 +60,14 @@ test('Caesar Cipher 4', ()=>{
     expect(caesarCipher('defend the, east. wall... of the castle',1)).toBe('efgfoe uif, fbtu. xbmm... pg uif dbtumf');
 })
 
+test('Caesar Cipher 5', ()=>{
+    expect(caesarCipher('castle',2)).toBe('ecuvng');
+})
+
+test('Caesar Cipher 6', ()=>{
+    expect(caesarCipher('defend the, east. wall... of the castle',5)).toBe('ijkjsi ymj, jfxy. bfqq... tk ymj hfxyqj');
+})
+
 test('Analyze Array 1', ()=>{
     expect(analyzeArray([2,3,5,2])).toStrictEqual({ average: 3, min: 2, max: 5, length: 4 });
 })
